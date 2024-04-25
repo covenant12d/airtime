@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="airtime">Airtime</label>
+    <select id="airtime">
+        <option value="MTN">MTN</option>
+        <option value="AIRTEL">AIRTEL</option>
+        <option value="GLO">GLO</option>
+        <option value="9MOBILE">9MOBILE</option>
+        
+    </select><br>
+    
+    <label for="amount" >Amount</label>
+    <select id="amount">
+        <option value="100">100</option>
+        <option value="200">200</option>
+        <option value="500">500</option>
+        <option value="1000">1000</option>
+        
+    </select>
+    <div>
+    <button onclick="generate()">generate pin</button>
+    <h1 id="pin"></h1>
+</div>
+
+<input id="input2" type="text">
+<button onclick="loadairtime()">Load</button>
+
+<h1 id="output">balance <span id="bal"> </span></h1>
+<h2  id="output2"></h2>
+</body>
+</html>
+<script>
+
+let pin = document.getElementById('pin')
+let bal = document.getElementById('bal')
+let input2 = document.getElementById('input2')
+let output = document.getElementById('output')
+let balance = 0
+let she = document.getElementById('output2')
+let airtime = document.getElementById('airtime')
+    let amount = document.getElementById('amount')
+// let airtime = document.getElementById('airtime')
+
+let random
+
+
+
+function generate() {
+    random = Math.floor(Math.random()* 100000000000)
+    pin.innerHTML = random
+    console.log(`your airtime is ${amount.value} network ${airtime.value}`);
+    // console.log(airtime.value);
+    }
+
+
+
+
+    function loadairtime(){
+    
+        if (input2.value.startsWith('*311*') && input2.value.includes(random) && input2.value.endsWith('#'))  {
+            she.innerHTML = [`your airtime is ${+amount.value} network ${airtime.value}`]
+            bal.innerHTML =   balance  += Number(amount.value)
+        }
+       
+       else{
+        alert('wrong')
+       }
+    }
+
+
+
+    
+   
+</script>
